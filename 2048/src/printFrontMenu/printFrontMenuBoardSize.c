@@ -35,10 +35,21 @@ void printFrontMenuBoardSize(char line[], int selectedNumber) { /* 3~7, x print 
   endColor = startColor + 12;
   for (int i = 0; i < 160; i++) {
     if (startColor <= i && i < endColor) {
-      printf("\033[48;5;160m%c", line[i]); /* coloring background */
+      if (line[i] == '#') {
+        printf("\033[48;5;231m "); /* white space */
+      }
+      else {
+        printf("\033[48;5;160m%c", line[i]); /* coloring background */
+      }
     }
     else {
-      printf("\033[0m%c", line[i]);
+      if (line[i] == '#') {
+        printf("\033[48;5;231m "); /* white space */
+      }
+      else {
+        printf("\033[0m%c", line[i]);
+      }
     }
   }
+  printf("\033[0m\n");
 }

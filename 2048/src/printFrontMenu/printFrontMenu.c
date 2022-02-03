@@ -2,6 +2,7 @@
 #include "readHighScoreSheet.h"
 #include "printFrontMenuHighScore.h"
 #include "printFrontMenuOrdinal.h"
+#include "printFrontMenuBoardSize.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,10 +24,16 @@ int printFrontMenu() {
   char buf[bufsize];
   int i = 0;
   int startScore = 42;
+  int widthScore = 5;
+  int startBoardSize = 32;
+  int widthBoardSize = 7;
 
   while (fgets(buf, bufsize, fpFrontMenu) != NULL && i < 50) {
-    if (startScore <= i && i <= startScore+4) {
+    if (startScore <= i && i < startScore+widthScore) {
       printFrontMenuHighScore(buf, arrayHighScore[i-startScore]);
+    }
+    else if (startBoardSize <= i && i < startBoardSize+widthBoardSize) {
+      printFrontMenuBoardSize(buf,3);
     }
     else {
       printFrontMenuOrdinal(buf);

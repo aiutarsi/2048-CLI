@@ -5,7 +5,7 @@ PFMDIR = printFrontMenu
 
 CFLAGS = -Wall
 
-PFMOBJS = $(SRCDIR)/$(PFMDIR)/calculateDigitNumber.o $(SRCDIR)/$(PFMDIR)/printFrontMenu.o $(SRCDIR)/$(PFMDIR)/printFrontMenuHighScore.o $(SRCDIR)/$(PFMDIR)/printFrontMenuOrdinal.o $(SRCDIR)/$(PFMDIR)/readHighScoreSheet.o
+PFMOBJS = $(SRCDIR)/$(PFMDIR)/calculateDigitNumber.o $(SRCDIR)/$(PFMDIR)/printFrontMenu.o $(SRCDIR)/$(PFMDIR)/printFrontMenuHighScore.o $(SRCDIR)/$(PFMDIR)/printFrontMenuOrdinal.o $(SRCDIR)/$(PFMDIR)/readHighScoreSheet.o $(SRCDIR)/$(PFMDIR)/printFrontMenuBoardSize.o
 OBJS = $(SRCDIR)/main.o $(PFMOBJS)
 TARGET = 2048
 
