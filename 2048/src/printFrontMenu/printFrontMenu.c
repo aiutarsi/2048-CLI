@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printFrontMenu() {
+int printFrontMenu() {
   /* Making HighScore array */
   int arrayHighScore[5] = {0,0,0,0,0};
   readHighScoreSheet(arrayHighScore);
@@ -22,7 +22,7 @@ void printFrontMenu() {
   const size_t bufsize = 162;
   char buf[bufsize];
   int i = 0;
-  int startScore = 40;
+  int startScore = 42;
 
   while (fgets(buf, bufsize, fpFrontMenu) != NULL && i < 50) {
     if (startScore <= i && i <= startScore+4) {
@@ -40,4 +40,6 @@ void printFrontMenu() {
     fprintf(stderr, "ERROR : Invalid Format of %s (too much lines).\n", frontMenuName);
     exit(EXIT_FAILURE);
   }
+
+  return 4;
 }

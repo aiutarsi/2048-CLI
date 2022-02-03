@@ -502,6 +502,8 @@ int main () {
 
     int bsize;
 
+    /* \rは先頭に戻る(その行の先頭多分) */
+
     printf("\r\n");
     printf("Press natural number and 'Enter' to decide the size of the board.\r\n");
     printf("If you press 5, 5*5 board will be made.\r\n");
