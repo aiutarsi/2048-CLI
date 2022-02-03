@@ -4,7 +4,7 @@
 
 void readHighScoreSheet(int arrayHighScore[]) {
   FILE *fp;
-  const char highScoreName[] = "./sheets/highScoreSheet.txt";
+  const char highScoreName[] = "./src/sheets/highScoreSheet.txt";
 
   if ((fp = fopen(highScoreName, "r")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", highScoreName);

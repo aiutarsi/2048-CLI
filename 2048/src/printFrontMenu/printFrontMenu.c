@@ -12,7 +12,7 @@ void printFrontMenu() {
 
   /* Reading frontMenu.txt and print */
   FILE *fpFrontMenu;
-  const char frontMenuName[] = "./sheets/frontMenu.txt";
+  const char frontMenuName[] = "./src/sheets/frontMenu.txt";
 
   if ((fpFrontMenu = fopen(frontMenuName, "r")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", frontMenuName);

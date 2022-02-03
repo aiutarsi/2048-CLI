@@ -1,13 +1,17 @@
 CC = gcc
 
-BINDIR = bin
 SRCDIR = src
+PFMDIR = printFrontMenu
 
 CFLAGS = -Wall
-LDLIBS = -lm
 
-SRC = $(SRCDIR)/printFrontMenu.c
-OBJ = $(SRCDIR)/intlib.o
-LIB = $(LIBDIR)/libinteger.a
+PFMOBJS = $(SRCDIR)/$(PFMDIR)/calculateDigitNumber.o $(SRCDIR)/$(PFMDIR)/printFrontMenu.o $(SRCDIR)/$(PFMDIR)/printFrontMenuHighScore.o $(SRCDIR)/$(PFMDIR)/printFrontMenuOrdinal.o $(SRCDIR)/$(PFMDIR)/readHighScoreSheet.o
+OBJS = $(SRCDIR)/main.o $(PFMOBJS)
+TARGET = 2048
 
-TARGET = $(BINDIR)/2048
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+.PHONY: clean
+clean:
+	rm -f $(OBJS) $(TARGET)
