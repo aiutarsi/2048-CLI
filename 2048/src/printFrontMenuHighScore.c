@@ -1,7 +1,6 @@
 #include "printFrontMenuHighScore.h"
 #include "calculateDigitNumber.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 void printFrontMenuHighScore(char line[], int score) {
   int printScoreFlag = 0;

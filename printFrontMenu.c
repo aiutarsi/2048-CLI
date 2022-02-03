@@ -118,5 +118,4 @@ void printFrontMenu() {
 
 int main() {
   printFrontMenu();
-  //printf("a\n");
 }
