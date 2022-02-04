@@ -26,16 +26,16 @@
                                                                                                                                                                 
                If you want to finish this game, you should select 'x'(the right end).                                                                           
                                                                                                                                                                 
-               Push the 'Enter' key and the game will start soon!                                                                                               
+               Push the '.' key and the game will start soon!                                                                                                   
                                                                                                                                                                 
                                                                                                                                                                 
                                                                                                                                                                 
                                                                                                                                                                 
-                             ######             #     #             ######             ######             ######             #   #                              
-                                  #             #     #             #                  #                  #    #              # #                               
-                             ######             #######             ######             ######             #    #               #                                
-                                  #                   #                  #             #    #                  #              # #                               
-                             ######                   #             ######             ######                  #             #   #                              
+                             ######             #    #             ######             ######             ######             #   #                               
+                                  #             #    #             #                  #                  #    #              # #                                
+                             ######             ######             ######             ######             #    #               #                                 
+                                  #                  #                  #             #    #                  #              # #                                
+                             ######                  #             ######             ######                  #             #   #                               
                                                                                                                                                                 
                                                                                                                                                                 
                High Score                                                                                                                                       

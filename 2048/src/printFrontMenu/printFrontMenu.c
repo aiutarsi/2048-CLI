@@ -15,38 +15,66 @@ int printFrontMenu() {
   FILE *fpFrontMenu;
   const char frontMenuName[] = "./src/sheets/frontMenu.txt";
 
+  /* file open */
   if ((fpFrontMenu = fopen(frontMenuName, "r")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", frontMenuName);
     exit(EXIT_FAILURE);
   }
 
-  const size_t bufsize = 162;
-  char buf[bufsize];
-  int i = 0;
+  /* save the content to 2-dim array from txt file */
+  const size_t rowsLength = 50;
+  const size_t linesLength = 162;
+  char contentFrontMenu[rowsLength][linesLength]; /* content from frontMenu.txt */
+  for (int i = 0; i < rowsLength; i++) {
+    if (fgets(contentFrontMenu[i], linesLength, fpFrontMenu) == NULL) {
+      fprintf(stderr, "ERROR : Invalid Format of %s (too few lines).\n", frontMenuName);
+      exit(EXIT_FAILURE);
+    }
+  }
+
   int startScore = 42;
   int widthScore = 5;
   int startBoardSize = 32;
   int widthBoardSize = 7;
+  int selectedBoardSize = 4;
 
-  while (fgets(buf, bufsize, fpFrontMenu) != NULL && i < 50) {
-    if (startScore <= i && i < startScore+widthScore) {
-      printFrontMenuHighScore(buf, arrayHighScore[i-startScore]);
+  int keyboardInput = 'i';
+
+  do { /* loop until typing Enter key */
+    system("clear"); /* removing all terminal output */
+
+    /* update board size by keyboard input */
+    if (keyboardInput == 'j') {
+      selectedBoardSize--;
     }
-    else if (startBoardSize <= i && i < startBoardSize+widthBoardSize) {
-      printFrontMenuBoardSize(buf,3);
+    else if (keyboardInput == 'k') {
+      selectedBoardSize++;
     }
-    else {
-      printFrontMenuOrdinal(buf);
+    if (selectedBoardSize == 2 && keyboardInput == 'j') { /* Before 3 and <- */
+      selectedBoardSize = 3;
     }
-    i++;
-  }
+    else if (selectedBoardSize == 9 && keyboardInput == 'k') { /* Before x and -> */
+      selectedBoardSize = 8;
+    }
+
+    for (int i = 0; i < rowsLength; i++) {
+      if (startScore <= i && i < startScore+widthScore) {
+        printFrontMenuHighScore(contentFrontMenu[i], arrayHighScore[i-startScore]);
+      }
+      else if (startBoardSize <= i && i < startBoardSize+widthBoardSize) {
+        printFrontMenuBoardSize(contentFrontMenu[i],selectedBoardSize);
+      }
+      else {
+        printFrontMenuOrdinal(contentFrontMenu[i]);
+      }
+    }
+    system("/bin/stty raw onlcr");  /* Enable to accept to input without typing Enter key */
+    keyboardInput = getchar();
+    system("/bin/stty cooked"); /* clean up */
+
+  } while (keyboardInput != '.');
 
   fclose(fpFrontMenu);
 
-  if (i > 50) {
-    fprintf(stderr, "ERROR : Invalid Format of %s (too much lines).\n", frontMenuName);
-    exit(EXIT_FAILURE);
-  }
-
-  return 4;
+  return selectedBoardSize;
 }

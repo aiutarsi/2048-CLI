@@ -1,19 +1,10 @@
 #include "printFrontMenuBoardSize.h"
 #include <stdio.h>
 
-/*
-29~
-横3, 縦1
-37
-*/
-
 void printFrontMenuBoardSize(char line[], int selectedNumber) { /* 3~7, x print */
   int startColor = 0;
   int endColor = 0;
   switch (selectedNumber) {
-    case 0: /* 0 is x */
-      startColor = 26 + 19*5;
-      break;
     case 3:
       startColor = 26 + 19*0;
       break;
@@ -28,6 +19,9 @@ void printFrontMenuBoardSize(char line[], int selectedNumber) { /* 3~7, x print 
       break;
     case 7:
       startColor = 26 + 19*4;
+      break;
+    case 8: /* 8 is x */
+      startColor = 26 + 19*5;
       break;
     default:
       break;
