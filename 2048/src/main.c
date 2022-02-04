@@ -9,7 +9,6 @@ int main() {
   2 -> Game over screen
   */
   int gameMode = 0;
-  //system("/bin/stty raw onlcr");  /* Enable to accept to input without typing Enter key */
   int endThisGame = 1; /* if 0, finish this program */
   int boardSize = 4;
   while (endThisGame) {
@@ -26,5 +25,4 @@ int main() {
       exit(EXIT_FAILURE);
     }
   }
-  //system("/bin/stty cooked"); /* clean up */
 }
