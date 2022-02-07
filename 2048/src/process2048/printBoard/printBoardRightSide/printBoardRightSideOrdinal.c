@@ -10,5 +10,5 @@ void printBoardRightSideOrdinal(char line[]) {
       printf("\033[0m%c", line[i]); /* White alphabet OR Default space*/
     }
   }
-  printf("\033[0m\n");
+  printf("\033[0m");
 }

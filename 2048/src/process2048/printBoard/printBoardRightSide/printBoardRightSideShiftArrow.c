@@ -9,7 +9,7 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
         printf("\033[48;5;160m "); /* Red space */
       }
       else {
-        printf("\033[0m%c", line[i]); /* Default space */
+        printf("\033[0m "); /* Default space */
       }
     }
 
@@ -19,7 +19,7 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
           printf("\033[48;5;160m "); /* Red space */
         }
         else {
-          printf("\033[0m%c", line[i]); /* Default space */
+          printf("\033[0m "); /* Default space */
         }
       }
       else if (28-2 <= i && i <= 39+2) { /* Right Arrow */
@@ -27,11 +27,11 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
           printf("\033[48;5;160m "); /* Red space */
         }
         else {
-          printf("\033[0m%c", line[i]); /* Default space */
+          printf("\033[0m "); /* Default space */
         }
       }
       else {
-        printf("\033[0m%c", line[i]); /* Default space */
+        printf("\033[0m "); /* Default space */
       }
     }
 
@@ -40,7 +40,7 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
         printf("\033[48;5;160m "); /* Red space */
       }
       else {
-        printf("\033[0m%c", line[i]); /* Default space */
+        printf("\033[0m "); /* Default space */
       }
     }
 
@@ -49,4 +49,6 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
       exit(EXIT_FAILURE);
     }
   }
+
+  printf("\033[0m");
 }

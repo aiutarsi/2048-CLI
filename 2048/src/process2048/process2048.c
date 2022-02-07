@@ -19,6 +19,11 @@
 int process2048(const int boardSize) {
   int board[8][8];
   int score = 0;
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      board[i][j] = 0;
+    }
+  }
 
   /* printBoard of right part, sheets/boardSide.txt */
   char contentBoardSide[52][72];
@@ -28,8 +33,17 @@ int process2048(const int boardSize) {
   generateNumberRandomlyAtFirst(boardSize, board);
 
   int keyboardInput = 't';
+  int forTheFirstTime = 0;
 
   do {
+    system("clear"); /* removing all terminal output */
+    
+    /* Random generate */
+    if (forTheFirstTime) {
+      generateNumberRandomly(boardSize, board);
+    }
+    forTheFirstTime = 1;
+
     /* direction judge */
     int judgeDirections[4] = {0,0,0,0};
     judgeDirections[0] = judgeShiftUp(boardSize, board);

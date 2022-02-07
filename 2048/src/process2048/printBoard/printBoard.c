@@ -1,5 +1,5 @@
 #include "printBoard.h"
-#include "decimalToBinary.h"
+#include "../../math/decimalToBinary.h"
 #include "../../math/calculateDigitNumber.h"
 #include "printBoardLeftSide/printBoxes.h"
 #include "printBoardLeftSide/printFillSpace.h"
@@ -115,9 +115,9 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
   while(lineNumber < 52) {
     for (int j = 0; j < 90; j++) {
       printf(" ");
-      printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
-      printf("\n");
     }
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
+    printf("\n");
   }
 }
