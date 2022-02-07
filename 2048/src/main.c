@@ -5,21 +5,18 @@
 #include <stdlib.h>
 
 int main() {
-  /*
-  0 -> Front Menu
-  1 -> Game screen
-  2 -> Game over screen
-  */
   int endThisGame = 1; /* if 0, finish this program */
   while (endThisGame) {
-    endThisGame = 0;
 
     int boardSize = printFrontMenu();
 
-    if (boardSize == 8) continue;
+    if (boardSize == 8) {
+      endThisGame = 0;
+      continue;
+    }
 
     int which = whichStart(boardSize);
-    
-    process2048(boardSize);
+
+    process2048(boardSize, which);
   }
 }

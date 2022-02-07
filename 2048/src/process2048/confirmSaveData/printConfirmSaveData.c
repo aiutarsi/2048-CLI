@@ -1,18 +1,17 @@
-#include "printWhichStart.h"
+#include "printConfirmSaveData.h"
 #include <stdio.h>
 
 void printSpace(int start, int end) { /* [start, end) */
   for (int i = start; i < end; i++) printf(" ");
 }
-
-void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from the save data */
+void printConfirmSaveData(int which) { /* 1 -> yes(save), 0 -> no(don't save) */
   for (int i = 0; i < 50; i++) {
-    if (0 <= i <= 4) {
+    if ( 0 <= i <= 4) {
       printf("\n");
     }
     else if (i == 5) {
       printSpace(0, 49);
-      printf("Select 'Start From the Begining' or 'Start From Save Data'.\n");
+      printf("Do you go back to 'Start Menu' with saveing current game dat\n");
     }
     else if (i == 6) {
       printf("\n");
@@ -51,14 +50,14 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
       printSpace(0, 60);
       if (which) {
         printf("\033[48;5;231m");
-        printSpace(60, 68);
-        printf("Start : From The Begining");
-        printSpace(93,100);
+        printSpace(60, 72);
+        printf("Yes : Save data");
+        printSpace(87, 100);
         printf("\033[0m");
       }
       else {
-        printSpace(60, 68);
-        printf("Start : From The Begining");
+        printSpace(60, 72);
+        printf("Yes : Save data");
       }
       printf("\n");
     }
@@ -89,14 +88,14 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
       printSpace(0, 60);
       if (!which) {
         printf("\033[48;5;231m");
-        printSpace(60, 67);
-        printf("Start : From The Save Data");
-        printSpace(94, 100);
+        printSpace(60, 70);
+        printf("No : Don't save data");
+        printSpace(90, 100);
         printf("\033[0m");
       }
       else {
-        printSpace(60, 67);
-        printf("Start : From The Save Data");
+        printSpace(60, 70);
+        printf("No : Don't save data");
       }
       printf("\n");
     }

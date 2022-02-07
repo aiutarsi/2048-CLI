@@ -11,6 +11,7 @@ P2-PB-L-DIR = printBoardLeftSide
 P2-PB-R-DIR = printBoardRightSide
 P2-S-DIR = shift
 P2-S-SM-DIR = shiftMove
+P2-CSD-DIR = confirmSaveData
 
 MATH-DIR = math
 
@@ -37,13 +38,15 @@ P2-S-SM-OBJS = $(SRC-DIR)/$(P2-DIR)/$(P2-S-DIR)/$(P2-S-SM-DIR)/shiftUp.o $(SRC-D
 
 P2-S-OBJS = $(SRC-DIR)/$(P2-DIR)/$(P2-S-DIR)/judgeShiftUp.o $(SRC-DIR)/$(P2-DIR)/$(P2-S-DIR)/judgeShiftDown.o $(SRC-DIR)/$(P2-DIR)/$(P2-S-DIR)/judgeShiftLeft.o $(SRC-DIR)/$(P2-DIR)/$(P2-S-DIR)/judgeShiftRight.o $(P2-S-SM-OBJS)
 
-P2-OBJS = $(SRC-DIR)/$(P2-DIR)/judgeExist2048.o $(SRC-DIR)/$(P2-DIR)/judgeGameOver.o $(SRC-DIR)/$(P2-DIR)/process2048.o $(P2-GNR-OBJS) $(P2-PB-OBJS) $(P2-S-OBJS)
+P2-CSD-OBJS = $(SRC-DIR)/$(P2-DIR)/$(P2-CSD-DIR)/confirmSaveData.o $(SRC-DIR)/$(P2-DIR)/$(P2-CSD-DIR)/printConfirmSaveData.o
+
+P2-OBJS = $(SRC-DIR)/$(P2-DIR)/judgeExist2048.o $(SRC-DIR)/$(P2-DIR)/judgeGameOver.o $(SRC-DIR)/$(P2-DIR)/process2048.o $(P2-GNR-OBJS) $(P2-PB-OBJS) $(P2-S-OBJS) $(P2-CSD-OBJS)
 
 MATH-OBJS = $(SRC-DIR)/$(MATH-DIR)/calculateDigitNumber.o $(SRC-DIR)/$(MATH-DIR)/decimalToBinary.o
 
 RS-OBJS = $(SRC-DIR)/$(RS-DIR)/readBoardSideSheet.o $(SRC-DIR)/$(RS-DIR)/readHighScoreSheet.o $(SRC-DIR)/$(RS-DIR)/existSaveData.o $(SRC-DIR)/$(RS-DIR)/readSaveData.o
 
-WS-OBJS = $(SRC-DIR)/$(WS-DIR)/writeHighScoreSheet.o
+WS-OBJS = $(SRC-DIR)/$(WS-DIR)/writeHighScoreSheet.o $(SRC-DIR)/$(WS-DIR)/writeSaveData.o
 
 WHS-OBJS = $(SRC-DIR)/$(WHS-DIR)/whichStart.o $(SRC-DIR)/$(WHS-DIR)/printWhichStart.o
 

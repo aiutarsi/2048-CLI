@@ -14,11 +14,13 @@
 #include "printBoard/printBoard.h"
 #include "../readSheet/readBoardSideSheet.h"
 #include "../readSheet/readHighScoreSheet.h"
+#include "../readSheet/readSaveData.h"
 #include "../writeSheet/writeHighScoreSheet.h"
+#include "confirmSaveData/confirmSaveData.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int process2048(const int boardSize) {
+int process2048(const int boardSize, int which) {
 
   /* initialization */
   int board[8][8];
@@ -38,8 +40,15 @@ int process2048(const int boardSize) {
   char contentBoardSide[52][72];
   readBoardSideSheet(contentBoardSide);
 
-  /* Random generate at first */
-  generateNumberRandomlyAtFirst(boardSize, board);
+  /* From the Save Data */
+  if (!which) {
+    readSaveData(boardSize, board, &score);
+  }
+  /* From the Begining */
+  else {
+    /* Random generate at first */
+    generateNumberRandomlyAtFirst(boardSize, board);
+  }
 
   int keyboardInput = 't';
   int forTheFirstTime = 0;
@@ -100,6 +109,7 @@ int process2048(const int boardSize) {
         flagBreak = 0;
       }
       else if (keyboardInput == '.') {
+        confirmSaveData(boardSize, board, score);
         flagBreak = 0;
       }
     }
