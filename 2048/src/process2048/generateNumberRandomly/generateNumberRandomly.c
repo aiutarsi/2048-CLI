@@ -31,7 +31,7 @@ int generateNumberRandomly(int boardSize, int board[][8]) { /* 1 -> generated su
   int flag = 0;
   for (int i = 0; i < boardSize; i++) {
     for (int j = 0; j < boardSize; j++) {
-      if (enumBoard[i][j] == num) {
+      if (enumBoard[i][j] == index) {
         if (number % 100 == 99) { /* 1% -> 8 */
           board[i][j] = 8;
         }

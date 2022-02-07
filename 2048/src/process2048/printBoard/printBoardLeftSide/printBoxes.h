@@ -3,6 +3,5 @@
 
 void printBoxesUpperFrame(int, int*);
 void printBoxesSideFrame(int, int*);
-void printFillSpace(int);
 
 #endif

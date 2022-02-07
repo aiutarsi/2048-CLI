@@ -2,15 +2,17 @@
 #include "decimalToBinary.h"
 #include "calculateDigitNumber.h"
 #include "printBoardLeftSide/printBoxes.h"
+#include "printBoardLeftSide/printFillSpace.h"
+#include "printBoardRightSide/printBoardRightSide.h"
 #include <stdio.h>
 
-void printBoard(int boardSize, int board[][8], int score, int highScore, int judgeDirections[]) {
+void printBoard(int boardSize, int board[][8], int score, int highScore, int judgeDirections[], char contentBoardSide[][72]) {
   int colorList[20] = {136,208,196,200,126,93,63,21,33,45,76,28,64,69,97,88,131,240,232}; /* TODO : for 2^31-1, need more color and beautiful to see */
 
   int lineNumber = 0;
-
-  printf("\n");
+  printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
   lineNumber++;
+  printf("\n");
 
   for (int i = 0; i < boardSize; i++) { /* rows */
     int eachRowColorList[boardSize+1]; /* color each cell */
@@ -24,48 +26,21 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
       }
     }
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 1st row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("+----------+");
-        printf("\e[49m");
-      }
-      else {
-        printf("+----------+");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesUpperFrame(boardSize, eachRowColorList); /* 1st row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 2nd row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("|          |");
-        printf("\e[49m");
-      }
-      else {
-        printf("|          |");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesSideFrame(boardSize, eachRowColorList); /* 2nd row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 3rd row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("|          |");
-        printf("\e[49m");
-      }
-      else {
-        printf("|          |");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesSideFrame(boardSize, eachRowColorList); /* 3rd row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
@@ -113,56 +88,36 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
         printf("\e[49m");
       }
     }
-    /* space fill */
-    /* side board print */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 5th row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("|          |");
-        printf("\e[49m");
-      }
-      else {
-        printf("|          |");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesSideFrame(boardSize, eachRowColorList); /* 5th row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 6th row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("|          |");
-        printf("\e[49m");
-      }
-      else {
-        printf("|          |");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesSideFrame(boardSize, eachRowColorList); /* 6th row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
 
-    for (int j = 0; j < boardSize; j++) { /* lines, 7th row */
-      if (eachRowColorList[j] > 0) {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
-        printf("+----------+");
-        printf("\e[49m");
-      }
-      else {
-        printf("+----------+");
-      }
-    }
-    /* space fill */
-    /* side board print */
+    printBoxesUpperFrame(boardSize, eachRowColorList); /* 7th row */
+    printFillSpace(boardSize);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
     lineNumber++;
     printf("\n");
   }
 
-  /* side board print */
+  while(lineNumber < 52) {
+    for (int j = 0; j < 90; j++) {
+      printf(" ");
+      printBoardRightSide(lineNumber, contentBoardSide, judgeDirections);
+      printf("\n");
+    }
+    lineNumber++;
+  }
 }

@@ -1,4 +1,5 @@
 #include "printFrontMenu/printFrontMenu.h"
+#include "process2048/process2048.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,16 +14,7 @@ int main() {
   int boardSize = 4;
   while (endThisGame) {
     endThisGame = 0;
-    int val = printFrontMenu();
-    if (3 <= val && val <= 7) {
-      boardSize = 4;
-    }
-    else if (val == 0) {
-      endThisGame = 0;
-    }
-    else {
-      fprintf(stderr, "ERROR : Invalid return value from printFromMenu Func");
-      exit(EXIT_FAILURE);
-    }
+    int boardSize = printFrontMenu();
+    int returnValue = process2048(boardSize);
   }
 }
