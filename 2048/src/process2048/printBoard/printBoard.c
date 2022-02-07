@@ -1,6 +1,6 @@
 #include "printBoard.h"
 #include "decimalToBinary.h"
-#include "calculateDigitNumber.h"
+#include "../../math/calculateDigitNumber.h"
 #include "printBoardLeftSide/printBoxes.h"
 #include "printBoardLeftSide/printFillSpace.h"
 #include "printBoardRightSide/printBoardRightSide.h"

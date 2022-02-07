@@ -1,5 +1,5 @@
 #include "printFrontMenuHighScore.h"
-#include "calculateDigitNumber.h"
+#include "../math/calculateDigitNumber.h"
 #include <stdio.h>
 
 void printFrontMenuHighScore(char line[], int score) {

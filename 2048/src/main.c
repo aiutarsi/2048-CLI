@@ -9,12 +9,10 @@ int main() {
   1 -> Game screen
   2 -> Game over screen
   */
-  int gameMode = 0;
   int endThisGame = 1; /* if 0, finish this program */
-  int boardSize = 4;
   while (endThisGame) {
     endThisGame = 0;
     int boardSize = printFrontMenu();
-    int returnValue = process2048(boardSize);
+    process2048(boardSize);
   }
 }

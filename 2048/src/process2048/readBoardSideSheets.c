@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void readBoardSideSheets(int contentBoardSide[][72]) {
+void readBoardSideSheets(char contentBoardSide[][72]) {
   FILE *fp;
   const char boardSideName[] = "./src/sheets/boardSide.txt";
   if ((fp = fopen(boardSideName, "r")) == NULL) {

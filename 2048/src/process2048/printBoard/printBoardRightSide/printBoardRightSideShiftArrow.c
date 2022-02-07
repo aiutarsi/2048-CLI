@@ -45,7 +45,7 @@ void printBoardRightSideShiftArrow(int lineNumber, char line[], int judgeDirecti
     }
 
     else {
-      printf(stderr, "ERROR : Invalid calling at position printBoardRightSideShiftArrow().\n");
+      fprintf(stderr, "ERROR : Invalid calling at position printBoardRightSideShiftArrow().\n");
       exit(EXIT_FAILURE);
     }
   }
