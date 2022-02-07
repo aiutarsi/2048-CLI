@@ -10,7 +10,6 @@ void printFrontMenuOrdinal(char line[]) { /* 2048 & explanation part */
       printf("\033[48;5;231m "); /* White space */
     }
     else {
-      printf("\033[1m");
       printf("\033[0m%c", line[i]); /* White alphabet */
     }
   }

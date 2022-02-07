@@ -13,7 +13,7 @@ int existSaveData(int boardSize) {
   }
 
   int existSaveData = 0;
-  fscanf(fp, "%d", existSaveData);
+  fscanf(fp, "%d", &existSaveData);
 
   fclose(fp);
   if (!existSaveData) {

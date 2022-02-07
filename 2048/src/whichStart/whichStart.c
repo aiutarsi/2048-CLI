@@ -1,7 +1,8 @@
 #include "whichStart.h"
-#include "../readSheet/existSaveData.h"
 #include "printWhichStart.h"
-#include "stdlib.h"
+#include "../readSheet/existSaveData.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int whichStart(int boardSize) { /* from the begining start -> 1, from save data start -> 0 */
   int isExistSaveData = existSaveData(boardSize);

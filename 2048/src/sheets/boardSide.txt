@@ -38,9 +38,9 @@
                                                                       
                                                                       
                                                                       
-    From the begining              Pause                              
-         ('q')                     ('p')                              
                                                                       
+      Go back to Start Menu (Halt game)                               
+                    ('.')                                             
                                                                       
                                                                       
                                                                       

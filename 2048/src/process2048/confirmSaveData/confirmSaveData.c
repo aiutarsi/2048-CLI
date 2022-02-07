@@ -1,7 +1,8 @@
 #include "confirmSaveData.h"
+#include "printConfirmSaveData.h"
 #include "../../writeSheet/writeSaveData.h"
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void confirmSaveData(int boardSize, int board[][8], int score) {
   int keyboardInput = 'i';

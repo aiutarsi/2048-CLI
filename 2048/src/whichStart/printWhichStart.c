@@ -7,12 +7,12 @@ void printSpace(int start, int end) { /* [start, end) */
 
 void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from the save data */
   for (int i = 0; i < 50; i++) {
-    if (0 <= i <= 4) {
+    if (0 <= i && i <= 4) {
       printf("\n");
     }
     else if (i == 5) {
       printSpace(0, 49);
-      printf("Select 'Start From the Begining' or 'Start From Save Data'.\n");
+      printf("Select 'Start : From The Begining' or 'Start : From The Save Data'.\n");
     }
     else if (i == 6) {
       printf("\n");
@@ -32,6 +32,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
       printf("\n");
     }
     else if (i == 11) {
+      printSpace(0, 15);
       printf("Push the '.' key and the game will start soon!\n");
     }
     else if (12 <= i && i <= 16) {
@@ -41,7 +42,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (17 <= i && i <= 19) {
       printSpace(0,60);
       if (which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 100);
         printf("\033[0m");
       }
@@ -50,7 +51,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (i == 20) {
       printSpace(0, 60);
       if (which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 68);
         printf("Start : From The Begining");
         printSpace(93,100);
@@ -65,7 +66,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (21 <= i && i <= 23) {
       printSpace(0,60);
       if (which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 100);
         printf("\033[0m");
       }
@@ -79,7 +80,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (32 <= i && i <= 34) {
       printSpace(0,60);
       if (!which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 100);
         printf("\033[0m");
       }
@@ -88,10 +89,10 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (i == 35) {
       printSpace(0, 60);
       if (!which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 67);
         printf("Start : From The Save Data");
-        printSpace(94, 100);
+        printSpace(93, 100);
         printf("\033[0m");
       }
       else {
@@ -103,7 +104,7 @@ void printWhichStart(int which) { /* which : 1 -> from the begining, 0 -> from t
     else if (36 <= i && i <= 38) {
       printSpace(0,60);
       if (!which) {
-        printf("\033[48;5;231m");
+        printf("\033[48;5;160m");
         printSpace(60, 100);
         printf("\033[0m");
       }

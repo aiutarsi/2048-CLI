@@ -13,13 +13,13 @@ int readSaveData(int boardSize, int board[][8], int *score) {
   }
 
   int existSaveData = 0;
-  fscanf(fp, "%d", existSaveData);
+  fscanf(fp, "%d", &existSaveData);
   if (!existSaveData) {
     fclose(fp);
     return 0;
   }
 
-  fscanf(fp, "%d", &score);
+  fscanf(fp, "%d", score);
 
   for (int i = 0; i < boardSize; i++) {
     for (int j = 0; j < boardSize; j++) {

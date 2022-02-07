@@ -20,7 +20,7 @@ void printFrontMenuHighScore(char line[], int score) {
 
     if (printScoreFlag) { /* write score after 2 space of ':' */
       if (printScoreFlag == 2) {
-        printf("\033[38;5;1m%d", score); /* White score */
+        printf("\033[38;5;160m%d", score); /* White score */
         i += calculateDigitNumber(score)-1;
         printScoreFlag = 0;
       }
