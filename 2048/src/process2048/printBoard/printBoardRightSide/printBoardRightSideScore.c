@@ -1,12 +1,12 @@
-#include "printFrontMenuHighScore.h"
-#include "../math/calculateDigitNumber.h"
+#include "printBoardRightSideScore.h"
+#include "../../../math/calculateDigitNumber.h"
 #include <stdio.h>
 
-void printFrontMenuHighScore(char line[], int score) {
+void printBoardRightSideScore(char line[], int score) {
   int printScoreFlag = 0;
   int i = 0;
-
-  while (i < 160) {
+  
+  while (i < 70) {
     if (line[i] == ':') {
       printScoreFlag++;
       printf("\033[0m%c", line[i]); /* White alphabet */
@@ -31,5 +31,5 @@ void printFrontMenuHighScore(char line[], int score) {
 
     i++;
   }
-  printf("\033[0m\n");
+  printf("\033[0m");
 }

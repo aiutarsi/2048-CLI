@@ -12,11 +12,15 @@
 #include "generateNumberRandomly/generateNumberRandomly.h"
 #include "generateNumberRandomly/generateNumberRandomlyAtFirst.h"
 #include "printBoard/printBoard.h"
-#include "readBoardSideSheets.h"
+#include "../readSheet/readBoardSideSheet.h"
+#include "../readSheet/readHighScoreSheet.h"
+#include "../writeSheet/writeHighScoreSheet.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 int process2048(const int boardSize) {
+
+  /* initialization */
   int board[8][8];
   int score = 0;
   for (int i = 0; i < 8; i++) {
@@ -25,9 +29,14 @@ int process2048(const int boardSize) {
     }
   }
 
+  /* Making HighScore array */
+  int arrayHighScore[5] = {0,0,0,0,0};
+  readHighScoreSheet(arrayHighScore);
+  int highScore = arrayHighScore[boardSize-3];
+
   /* printBoard of right part, sheets/boardSide.txt */
   char contentBoardSide[52][72];
-  readBoardSideSheets(contentBoardSide);
+  readBoardSideSheet(contentBoardSide);
 
   /* Random generate at first */
   generateNumberRandomlyAtFirst(boardSize, board);
@@ -57,8 +66,15 @@ int process2048(const int boardSize) {
     /* game over judge */
     int flagGameOver = judgeGameOver(judgeDirections);
 
+    /* update high score */
+    if (highScore < score) {
+      highScore = score;
+      arrayHighScore[boardSize-3] = highScore;
+      writeHighScoreSheet(arrayHighScore);
+    }
+
     /* printBoard */
-    printBoard(boardSize, board, score, 0, judgeDirections, contentBoardSide);
+    printBoard(boardSize, board, score, highScore, judgeDirections, contentBoardSide);
 
     int flagBreak = 1;
     while (flagBreak) {

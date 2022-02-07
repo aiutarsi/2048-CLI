@@ -1,5 +1,5 @@
 #include "printFrontMenu.h"
-#include "readHighScoreSheet.h"
+#include "../readSheet/readHighScoreSheet.h"
 #include "printFrontMenuHighScore.h"
 #include "printFrontMenuOrdinal.h"
 #include "printFrontMenuBoardSize.h"
@@ -36,7 +36,7 @@ int printFrontMenu() {
   int widthScore = 5;
   int startBoardSize = 32;
   int widthBoardSize = 7;
-  int selectedBoardSize = 4;
+  int selectedBoardSize = 4; /* 8 is quit */
 
   int keyboardInput = 'i';
 

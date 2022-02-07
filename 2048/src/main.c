@@ -13,6 +13,7 @@ int main() {
   while (endThisGame) {
     endThisGame = 0;
     int boardSize = printFrontMenu();
+    if (boardSize == 8) continue;
     process2048(boardSize);
   }
 }
