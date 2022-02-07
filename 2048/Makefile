@@ -18,6 +18,8 @@ RS-DIR = readSheet
 
 WS-DIR = writeSheet
 
+WHS-DIR = whichStart
+
 CFLAGS = -Wall
 
 PFM-OBJS = $(SRC-DIR)/$(PFM-DIR)/printFrontMenu.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuHighScore.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuOrdinal.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuBoardSize.o
@@ -39,11 +41,13 @@ P2-OBJS = $(SRC-DIR)/$(P2-DIR)/judgeExist2048.o $(SRC-DIR)/$(P2-DIR)/judgeGameOv
 
 MATH-OBJS = $(SRC-DIR)/$(MATH-DIR)/calculateDigitNumber.o $(SRC-DIR)/$(MATH-DIR)/decimalToBinary.o
 
-RS-OBJS = $(SRC-DIR)/$(RS-DIR)/readBoardSideSheet.o $(SRC-DIR)/$(RS-DIR)/readHighScoreSheet.o
+RS-OBJS = $(SRC-DIR)/$(RS-DIR)/readBoardSideSheet.o $(SRC-DIR)/$(RS-DIR)/readHighScoreSheet.o $(SRC-DIR)/$(RS-DIR)/existSaveData.o $(SRC-DIR)/$(RS-DIR)/readSaveData.o
 
 WS-OBJS = $(SRC-DIR)/$(WS-DIR)/writeHighScoreSheet.o
 
-OBJS = $(SRC-DIR)/main.o $(PFM-OBJS) $(P2-OBJS) $(MATH-OBJS) $(RS-OBJS) $(WS-OBJS)
+WHS-OBJS = $(SRC-DIR)/$(WHS-DIR)/whichStart.o $(SRC-DIR)/$(WHS-DIR)/printWhichStart.o
+
+OBJS = $(SRC-DIR)/main.o $(PFM-OBJS) $(P2-OBJS) $(MATH-OBJS) $(RS-OBJS) $(WS-OBJS) $(WHS-OBJS)
 
 TARGET = 2048
 

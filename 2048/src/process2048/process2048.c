@@ -43,6 +43,7 @@ int process2048(const int boardSize) {
 
   int keyboardInput = 't';
   int forTheFirstTime = 0;
+  int flagGameOver = 0;
 
   do {
     system("clear"); /* removing all terminal output */
@@ -64,7 +65,7 @@ int process2048(const int boardSize) {
     int flag2048 = judgeExist2048(boardSize, board);
 
     /* game over judge */
-    int flagGameOver = judgeGameOver(judgeDirections);
+    flagGameOver = judgeGameOver(judgeDirections);
 
     /* update high score */
     if (highScore < score) {
@@ -102,7 +103,7 @@ int process2048(const int boardSize) {
         flagBreak = 0;
       }
     }
-  } while(keyboardInput != '.');
+  } while(keyboardInput != '.' || flagGameOver);
   
   return 0;
 }

@@ -1,0 +1,17 @@
+0 or 1 /* If saveData exists -> 1, doesn't exist -> 0 */
+210 /* score */
+4
+8
+0
+2
+2
+0
+2
+0
+0
+
+/* file name is board size, this example 3 * 3
+4 8 0
+2 2 0
+2 0 0
+*/
