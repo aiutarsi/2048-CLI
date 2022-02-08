@@ -4,8 +4,8 @@
 
 int existSaveData(int boardSize) {
   FILE *fp;
-  char saveDataName[] = "./src/sheets/saveData/3.txt";
-  saveDataName[22] = '0' + boardSize;
+  char saveDataName[] = "./.sheets/saveData/3.txt";
+  saveDataName[19] = '0' + boardSize;
 
   if ((fp = fopen(saveDataName, "r")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", saveDataName);

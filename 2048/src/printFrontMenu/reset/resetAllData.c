@@ -5,7 +5,7 @@
 void resetAllData() {
   /* highScoreSheet.txt reset */
   FILE *fpHigh;
-  const char highScoreName[] = "./src/sheets/highScoreSheet.txt";
+  const char highScoreName[] = "./.sheets/highScoreSheet.txt";
   if ((fpHigh = fopen(highScoreName, "w")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", highScoreName);
     exit(EXIT_FAILURE);
@@ -19,8 +19,8 @@ void resetAllData() {
   int sizeArray[5] = {3,4,5,6,7};
   for (int i = 0; i < 5; i++) {
     FILE *fpSave;
-    char saveDataName[] = "./src/sheets/saveData/3.txt";
-    saveDataName[22] = '0' + sizeArray[i];
+    char saveDataName[] = "./.sheets/saveData/3.txt";
+    saveDataName[19] = '0' + sizeArray[i];
     if ((fpSave = fopen(saveDataName, "w")) == NULL) {
       fprintf(stderr, "ERROR : Cannot open %s.\n", saveDataName);
       exit(EXIT_FAILURE);

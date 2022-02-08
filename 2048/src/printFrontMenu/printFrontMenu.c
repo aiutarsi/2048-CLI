@@ -15,7 +15,7 @@ int printFrontMenu() {
 
   /* Reading frontMenu.txt and print */
   FILE *fpFrontMenu;
-  const char frontMenuName[] = "./src/sheets/frontMenu.txt";
+  const char frontMenuName[] = "./.sheets/frontMenu.txt";
 
   /* file open */
   if ((fpFrontMenu = fopen(frontMenuName, "r")) == NULL) {

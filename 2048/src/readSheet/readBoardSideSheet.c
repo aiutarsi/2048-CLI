@@ -4,7 +4,7 @@
 
 void readBoardSideSheet(char contentBoardSide[][72]) {
   FILE *fp;
-  const char boardSideName[] = "./src/sheets/boardSide.txt";
+  const char boardSideName[] = "./.sheets/boardSide.txt";
   if ((fp = fopen(boardSideName, "r")) == NULL) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", boardSideName);
     exit(EXIT_FAILURE);
