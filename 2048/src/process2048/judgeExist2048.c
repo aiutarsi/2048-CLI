@@ -4,7 +4,7 @@ int judgeExist2048(int boardSize, int board[][8]) { /* 1 -> 2048 exists. 0 -> 20
   int flag = 0;
   for (int i = 0; i < boardSize; i++) {
     for (int j = 0; j < boardSize; j++) {
-      if (board[i][j] == 2048) {
+      if (board[i][j] >= 2048) {
         flag = 1;
         break;
       }

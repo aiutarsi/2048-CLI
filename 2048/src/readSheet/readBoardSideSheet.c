@@ -9,7 +9,7 @@ void readBoardSideSheet(char contentBoardSide[][72]) {
     fprintf(stderr, "ERROR : Cannot open %s.\n", boardSideName);
     exit(EXIT_FAILURE);
   }
-  for (int i = 0; i < 52; i++) {
+  for (int i = 0; i < 50; i++) {
     if (fgets(contentBoardSide[i], 72, fp) == NULL) {
       fprintf(stderr, "ERROR : Invalid Format of %s (too few lines).\n", boardSideName);
       exit(EXIT_FAILURE);

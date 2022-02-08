@@ -9,6 +9,7 @@
 #include "shift/judgeShiftRight.h"
 #include "judgeGameOver.h"
 #include "judgeExist2048.h"
+#include "judgeOverFlow.h"
 #include "generateNumberRandomly/generateNumberRandomly.h"
 #include "generateNumberRandomly/generateNumberRandomlyAtFirst.h"
 #include "printBoard/printBoard.h"
@@ -30,6 +31,7 @@ int process2048(const int boardSize, int which) {
       board[i][j] = 0;
     }
   }
+  int messageFlags[3] = {0,0,0}; /* 2048( 0 -> don't exist, 1 -> exist, 2 -> still exist), gameover, overflow */
 
   /* Making HighScore array */
   int arrayHighScore[5] = {0,0,0,0,0};
@@ -37,12 +39,15 @@ int process2048(const int boardSize, int which) {
   int highScore = arrayHighScore[boardSize-3];
 
   /* printBoard of right part, sheets/boardSide.txt */
-  char contentBoardSide[52][72];
+  char contentBoardSide[50][72];
   readBoardSideSheet(contentBoardSide);
 
   /* From the Save Data */
   if (!which) {
     readSaveData(boardSize, board, &score);
+    if (judgeExist2048(boardSize, board)) {
+      messageFlags[0] = 2;
+    }
   }
   /* From the Begining */
   else {
@@ -52,10 +57,13 @@ int process2048(const int boardSize, int which) {
 
   int keyboardInput = 't';
   int forTheFirstTime = 0;
-  int flagGameOver = 0;
+  int flagGameOver = 0; /* GameOver -> 1 */
+  int flagOverFlow = 0; /* OverFlow -> 1 */
 
   do {
     system("clear"); /* removing all terminal output */
+
+    int flagBreak = 1;
     
     /* Random generate */
     if (forTheFirstTime) {
@@ -71,22 +79,33 @@ int process2048(const int boardSize, int which) {
     judgeDirections[3] = judgeShiftRight(boardSize, board);
     
     /* 2048 judge */
-    int flag2048 = judgeExist2048(boardSize, board);
+    if (messageFlags[0] == 0) {
+      if (judgeExist2048(boardSize, board)) {
+        messageFlags[0] = 1;
+      }
+    }
+    else if (messageFlags[0] == 1) {
+      messageFlags[0] = 2;
+    }
 
     /* game over judge */
     flagGameOver = judgeGameOver(judgeDirections);
+    messageFlags[1] = flagGameOver;
+
+    /* over flow judge */
+    flagOverFlow = judgeOverFlow(boardSize, board);
+    messageFlags[2] = flagOverFlow;
 
     /* update high score */
-    if (highScore < score) {
+    if (highScore < score) { 
       highScore = score;
       arrayHighScore[boardSize-3] = highScore;
       writeHighScoreSheet(arrayHighScore);
     }
 
     /* printBoard */
-    printBoard(boardSize, board, score, highScore, judgeDirections, contentBoardSide);
+    printBoard(boardSize, board, score, highScore, judgeDirections, contentBoardSide, messageFlags);
 
-    int flagBreak = 1;
     while (flagBreak) {
       system("/bin/stty raw onlcr");  /* Enable to accept to input without typing Enter key */
       keyboardInput = getchar();
@@ -109,11 +128,13 @@ int process2048(const int boardSize, int which) {
         flagBreak = 0;
       }
       else if (keyboardInput == '.') {
-        confirmSaveData(boardSize, board, score);
+        int skip = 0;
+        if (flagGameOver || flagOverFlow) skip = 1;
+        confirmSaveData(boardSize, board, score, skip);
         flagBreak = 0;
       }
     }
-  } while(keyboardInput != '.' || flagGameOver);
+  } while(keyboardInput != '.' && !flagGameOver && !flagOverFlow);
   
   return 0;
 }

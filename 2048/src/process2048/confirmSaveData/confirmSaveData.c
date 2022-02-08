@@ -4,10 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void confirmSaveData(int boardSize, int board[][8], int score) {
+void confirmSaveData(int boardSize, int board[][8], int score, int skip) {
+  if (skip) return;
+
   int keyboardInput = 'i';
   int which = 1;
-
+  
   do {
     system("clear"); /* removing all terminal output */
     
