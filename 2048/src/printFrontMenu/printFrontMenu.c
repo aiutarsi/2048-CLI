@@ -3,6 +3,8 @@
 #include "printFrontMenuHighScore.h"
 #include "printFrontMenuOrdinal.h"
 #include "printFrontMenuBoardSize.h"
+#include "reset/resetAllData.h"
+#include "reset/resetInput.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -71,6 +73,13 @@ int printFrontMenu() {
     system("/bin/stty raw onlcr");  /* Enable to accept to input without typing Enter key */
     keyboardInput = getchar();
     system("/bin/stty cooked"); /* clean up */
+
+    if (keyboardInput == 'r') { /* reset Data input and reset */
+      if (resetInput()) {
+        resetAllData();
+        readHighScoreSheet(arrayHighScore);
+      }
+    }
 
   } while (keyboardInput != '.');
 

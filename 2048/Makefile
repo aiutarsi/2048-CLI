@@ -3,6 +3,7 @@ CC = gcc
 SRC-DIR = src
 
 PFM-DIR = printFrontMenu
+PFM-R-DIR = reset
 
 P2-DIR = process2048
 P2-GNR-DIR = generateNumberRandomly
@@ -23,7 +24,10 @@ WHS-DIR = whichStart
 
 CFLAGS = -Wall
 
-PFM-OBJS = $(SRC-DIR)/$(PFM-DIR)/printFrontMenu.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuHighScore.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuOrdinal.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuBoardSize.o
+
+PFM-R-OBJS = $(SRC-DIR)/$(PFM-DIR)/$(PFM-R-DIR)/resetAllData.o $(SRC-DIR)/$(PFM-DIR)/$(PFM-R-DIR)/resetInput.o
+
+PFM-OBJS = $(SRC-DIR)/$(PFM-DIR)/printFrontMenu.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuHighScore.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuOrdinal.o $(SRC-DIR)/$(PFM-DIR)/printFrontMenuBoardSize.o $(PFM-R-OBJS)
 
 
 P2-GNR-OBJS = $(SRC-DIR)/$(P2-DIR)/$(P2-GNR-DIR)/generateNumberRandomly.o $(SRC-DIR)/$(P2-DIR)/$(P2-GNR-DIR)/generateNumberRandomlyAtFirst.o
