@@ -8,7 +8,18 @@
 #include <stdio.h>
 
 void printBoard(int boardSize, int board[][8], int score, int highScore, int judgeDirections[], char contentBoardSide[][72], int messageFlags[], int stackSize) {
-  int colorList[20] = {136,208,196,200,126,93,63,21,33,45,76,28,64,69,97,88,131,240,232}; /* TODO : for 2^31-1, need more color and beautiful to see */
+  int backgroundColorList[30] = { 136, 208, 196, 200, 126, 
+                                  129, 93,  63,  21,  33, 
+                                  45,  76,  28,  46,  156,
+                                  226, 153, 81,  97,  213,
+                                  223, 88,  131, 17,  2,  
+                                  232, 235, 239, 244, 255}; /* background color */
+  int charColorList[30] = { 231, 231, 231, 231, 231,
+                            231, 231, 231, 231, 231,
+                            232, 232, 231, 232, 232,
+                            232, 232, 232, 231, 232,
+                            232, 231, 231, 231, 231,
+                            231, 231, 231, 231, 232,}; /* character color (white or black) */
 
   int lineNumber = 0;
   printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
@@ -16,30 +27,33 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
   printf("\n");
 
   for (int i = 0; i < boardSize; i++) { /* rows */
-    int eachRowColorList[boardSize+1]; /* color each cell */
+    int eachRowBackgroundColorList[boardSize]; /* background color each cell */
+    int eachRowCharColorList[boardSize]; /* char color each cell */
     for (int j = 0; j < boardSize; j++) { /* lines */
-      eachRowColorList[j] = -1;
+      eachRowBackgroundColorList[j] = -1;
+      eachRowCharColorList[j] = -1;
     }
 
     for (int j = 0; j < boardSize; j++) { /* lines */
       if (board[i][j] != 0) {
-        eachRowColorList[j] = colorList[decimalToBinary(board[i][j])-2];
+        eachRowBackgroundColorList[j] = backgroundColorList[decimalToBinary(board[i][j])-2];
+        eachRowCharColorList[j] = charColorList[decimalToBinary(board[i][j])-2];
       }
     }
 
-    printBoxesUpperFrame(boardSize, eachRowColorList); /* 1st row */
+    printBoxesUpperFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 1st row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
-    printBoxesSideFrame(boardSize, eachRowColorList); /* 2nd row */
+    printBoxesSideFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 2nd row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
-    printBoxesSideFrame(boardSize, eachRowColorList); /* 3rd row */
+    printBoxesSideFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 3rd row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
@@ -50,7 +64,8 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
         printf("|          |");
       }
       else {
-        printf("\e[48;5;%dm", eachRowColorList[j]);
+        printf("\033[48;5;%dm", eachRowBackgroundColorList[j]);
+        printf("\033[38;5;%dm", eachRowCharColorList[j]);
         int length = calculateDigitNumber(board[i][j]); /* cell's number's length in decimal */
         switch (length) {
           case 1:
@@ -86,7 +101,7 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
           default:
             break;
         }
-        printf("\e[49m");
+        printf("\033[0m");
       }
     }
     printFillSpace(boardSize);
@@ -94,19 +109,19 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
     lineNumber++;
     printf("\n");
 
-    printBoxesSideFrame(boardSize, eachRowColorList); /* 5th row */
+    printBoxesSideFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 5th row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
-    printBoxesSideFrame(boardSize, eachRowColorList); /* 6th row */
+    printBoxesSideFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 6th row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
-    printBoxesUpperFrame(boardSize, eachRowColorList); /* 7th row */
+    printBoxesUpperFrame(boardSize, eachRowBackgroundColorList, eachRowCharColorList); /* 7th row */
     printFillSpace(boardSize);
     printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;

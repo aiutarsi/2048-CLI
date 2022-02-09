@@ -134,31 +134,31 @@ int process2048(const int boardSize, int which) {
       keyboardInput = getchar();
       system("/bin/stty cooked"); /* clean up */
 
-      if (keyboardInput == 'i' && judgeDirections[0]) {
+      if (keyboardInput == 'i' && judgeDirections[0] && !flagGameOver && !flagOverFlow) {
         /* record History (necessary to call func here) */
         recordHistory(boardSize, board, score, historyScore, historyBoard, &nowPtr, 20, &stackSize);
         score = shiftUp(boardSize, board, score);
         flagBreak = 0;
       }
-      else if (keyboardInput == 'm' && judgeDirections[1]) {
+      else if (keyboardInput == 'm' && judgeDirections[1] && !flagGameOver && !flagOverFlow) {
         /* record History (necessary to call func here) */
         recordHistory(boardSize, board, score, historyScore, historyBoard, &nowPtr, 20, &stackSize);
         score = shiftDown(boardSize, board, score);
         flagBreak = 0;
       }
-      else if (keyboardInput == 'j' && judgeDirections[2]) {
+      else if (keyboardInput == 'j' && judgeDirections[2] && !flagGameOver && !flagOverFlow) {
         /* record History (necessary to call func here) */
         recordHistory(boardSize, board, score, historyScore, historyBoard, &nowPtr, 20, &stackSize);
         score = shiftLeft(boardSize, board, score);
         flagBreak = 0;
       }
-      else if (keyboardInput == 'k' && judgeDirections[3]) {
+      else if (keyboardInput == 'k' && judgeDirections[3] && !flagGameOver && !flagOverFlow) {
         /* record History (necessary to call func here) */
         recordHistory(boardSize, board, score, historyScore, historyBoard, &nowPtr, 20, &stackSize);
         score = shiftRight(boardSize, board, score);
         flagBreak = 0;
       }
-      else if (keyboardInput == 'u' && stackSize != 0) {
+      else if (keyboardInput == 'u' && stackSize != 0 && !flagGameOver && !flagOverFlow) {
         fetchHistory(boardSize, board, &score, historyScore, historyBoard, &nowPtr, historySize, &stackSize);
         undoFlag = 1;
         flagBreak = 0;
