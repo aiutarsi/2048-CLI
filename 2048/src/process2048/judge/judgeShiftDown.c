@@ -1,7 +1,7 @@
-#include "judgeShiftUp.h"
-#include "shiftMove/shiftUp.h"
+#include "judgeShiftDown.h"
+#include "../shift/shiftDown.h"
 
-int judgeShiftUp(int boardSize, int board[][8]) { /* 1 -> can shift up 0 -> cannot shift up */
+int judgeShiftDown(int boardSize, int board[][8]) { /* 1 -> can shift down 0 -> cannot shift down */
   int copyBoard[8][8];
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
@@ -9,7 +9,7 @@ int judgeShiftUp(int boardSize, int board[][8]) { /* 1 -> can shift up 0 -> cann
     }
   }
 
-  int returnScore = shiftUp(boardSize, copyBoard, 0);
+  int returnScore = shiftDown(boardSize, copyBoard, 0);
   if (returnScore > 0) {
     return 1;
   }

@@ -1,0 +1,32 @@
+0 or 1 /* If saveData exists -> 1, doesn't exist -> 0 */
+2 /* stackSize */
+3 /* nowPtr */
+24 /* historyScore */
+20
+4 /* historyBoard */
+8
+0
+4
+0
+2
+0
+2
+0
+4
+8
+0
+2
+2
+0
+2
+0
+0
+
+
+/* file name is board size, this example 3 * 3
+4 8 0
+2 2 0
+2 0 0
+
+~~ upside is newer ~~
+*/

@@ -7,11 +7,11 @@
 #include "printBoardMessage.h"
 #include <stdio.h>
 
-void printBoard(int boardSize, int board[][8], int score, int highScore, int judgeDirections[], char contentBoardSide[][72], int messageFlags[]) {
+void printBoard(int boardSize, int board[][8], int score, int highScore, int judgeDirections[], char contentBoardSide[][72], int messageFlags[], int stackSize) {
   int colorList[20] = {136,208,196,200,126,93,63,21,33,45,76,28,64,69,97,88,131,240,232}; /* TODO : for 2^31-1, need more color and beautiful to see */
 
   int lineNumber = 0;
-  printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+  printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
   lineNumber++;
   printf("\n");
 
@@ -29,19 +29,19 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
 
     printBoxesUpperFrame(boardSize, eachRowColorList); /* 1st row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
     printBoxesSideFrame(boardSize, eachRowColorList); /* 2nd row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
     printBoxesSideFrame(boardSize, eachRowColorList); /* 3rd row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
@@ -90,25 +90,25 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
       }
     }
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
     printBoxesSideFrame(boardSize, eachRowColorList); /* 5th row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
     printBoxesSideFrame(boardSize, eachRowColorList); /* 6th row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
 
     printBoxesUpperFrame(boardSize, eachRowColorList); /* 7th row */
     printFillSpace(boardSize);
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
   }
@@ -117,7 +117,7 @@ void printBoard(int boardSize, int board[][8], int score, int highScore, int jud
     for (int j = 0; j < 90; j++) {
       printf(" ");
     }
-    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore);
+    printBoardRightSide(lineNumber, contentBoardSide, judgeDirections, score, highScore, stackSize);
     lineNumber++;
     printf("\n");
   }

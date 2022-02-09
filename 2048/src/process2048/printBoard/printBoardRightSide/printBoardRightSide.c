@@ -3,9 +3,10 @@
 #include "printBoardRightSideShiftArrow.h"
 #include "printBoardRightSideScore.h"
 #include "printBoardRightSideGoBack.h"
+#include "printBoardRightSideUndoArrow.h"
 #include <stdio.h>
 
-void printBoardRightSide(int lineNumber, char contentBoardSide[][72], int judgeDirections[], int score, int highScore) {
+void printBoardRightSide(int lineNumber, char contentBoardSide[][72], int judgeDirections[], int score, int highScore, int stackSize) {
   if (0 <= lineNumber && lineNumber <= 2) {
     printBoardRightSideOrdinal(contentBoardSide[lineNumber]);
   }
@@ -36,7 +37,13 @@ void printBoardRightSide(int lineNumber, char contentBoardSide[][72], int judgeD
   else if (lineNumber == 28) {
     printBoardRightSideScore(contentBoardSide[lineNumber], highScore);
   }
-  else if (29 <= lineNumber && lineNumber <= 38) {
+  else if (29 <= lineNumber && lineNumber <= 31) {
+    printBoardRightSideOrdinal(contentBoardSide[lineNumber]);
+  }
+  else if (32 <= lineNumber && lineNumber <= 36) {
+    printBoardRightSideUndoArrow(lineNumber, contentBoardSide[lineNumber], stackSize);
+  }
+  else if (37 <= lineNumber && lineNumber <= 38) {
     printBoardRightSideOrdinal(contentBoardSide[lineNumber]);
   }
   else if (39 <= lineNumber && lineNumber <= 44) {

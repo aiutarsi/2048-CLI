@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int readSaveData(int boardSize, int board[][8], int *score) {
+int readSaveData(int boardSize, int board[][8], int *score) { /* return 1 -> exist, return 0 -> doesn't exit */
   FILE *fp;
   char saveDataName[] = "./.sheets/saveData/3.txt";
   saveDataName[19] = '0' + boardSize;

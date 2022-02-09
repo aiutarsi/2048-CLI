@@ -1,10 +1,11 @@
 #include "confirmSaveData.h"
 #include "printConfirmSaveData.h"
 #include "../../writeSheet/writeSaveData.h"
+#include "../../writeSheet/writeHistorySaveData.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void confirmSaveData(int boardSize, int board[][8], int score, int skip) {
+void confirmSaveData(int boardSize, int board[][8], int score, int skip, int historyScore[], int historyBoard[][8][8], int *stackSize, int *nowPtr, int historySize) {
   if (skip) return;
 
   int keyboardInput = 'i';
@@ -30,6 +31,6 @@ void confirmSaveData(int boardSize, int board[][8], int score, int skip) {
 
   if (which) { /* save data(write to txt file) */
     writeSaveData(boardSize, board, score);
+    writeHistorySaveData(boardSize, historyScore, historyBoard, stackSize, nowPtr, historySize);
   }
-
 }

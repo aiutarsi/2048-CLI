@@ -15,8 +15,9 @@ void resetAllData() {
   }
   fclose(fpHigh);
 
-  /* saveData reset */
   int sizeArray[5] = {3,4,5,6,7};
+
+  /* saveData reset */
   for (int i = 0; i < 5; i++) {
     FILE *fpSave;
     char saveDataName[] = "./.sheets/saveData/3.txt";
@@ -27,5 +28,18 @@ void resetAllData() {
     }
     fprintf(fpSave, "%d\n", 0);
     fclose(fpSave);
+  }
+
+  /* historySaveData reset */
+  for (int i = 0; i < 5; i++) {
+    FILE *fpHistory;
+    char historySaveDataName[] = "./.sheets/historySaveData/3.txt";
+    historySaveDataName[26] = '0' + sizeArray[i];
+    if ((fpHistory = fopen(historySaveDataName, "w")) == NULL) {
+      fprintf(stderr, "ERROR : Cannot open %s.\n", historySaveDataName);
+      exit(EXIT_FAILURE);
+    }
+    fprintf(fpHistory, "%d\n", 0);
+    fclose(fpHistory);
   }
 }

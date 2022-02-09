@@ -1,7 +1,7 @@
-#include "judgeShiftRight.h"
-#include "shiftMove/shiftRight.h"
+#include "judgeShiftLeft.h"
+#include "../shift/shiftLeft.h"
 
-int judgeShiftRight(int boardSize, int board[][8]) { /* 1 -> can shift right 0 -> cannot shift right */
+int judgeShiftLeft(int boardSize, int board[][8]) { /* 1 -> can shift left 0 -> cannot shift left */
   int copyBoard[8][8];
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
@@ -9,7 +9,7 @@ int judgeShiftRight(int boardSize, int board[][8]) { /* 1 -> can shift right 0 -
     }
   }
 
-  int returnScore = shiftRight(boardSize, copyBoard, 0);
+  int returnScore = shiftLeft(boardSize, copyBoard, 0);
   if (returnScore > 0) {
     return 1;
   }
