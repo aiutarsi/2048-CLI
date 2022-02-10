@@ -1,8 +1,12 @@
 # 2048-CLI
 
+![g1](img/g1.gif)
+
 ## OverView
 
 This is simple CLI 2048 Game. You can choose the size of board from 3 * 3 to 7 * 7, and undo up to 20 times ago. This game also have some functions : Saving data, recording high score, and resetting all data.
+
+Original 2048 -> https://github.com/gabrielecirulli/2048
 
 ### The rule of 2048
 
@@ -12,29 +16,55 @@ There is n * n grid and multiple of 2(including 0) is written in each cell. You 
 
 ## Installation
 
+### Requirement
+
+* gcc
+* make
+
+
+Execute next command on your terminal, or download Zip file and expand it.
+
+```
+$ git clone https://github.com/aiutarsi/2048-CLI.git
+```
+
+Change directories to the `2048-CLI-main` (this is the folder which you download from GitHub), and execute next command on your terminal.
+
+```
+$ make
+$ ./2048
+```
+
 ## Usage
+
+### Start Game
+
+Change directories to the `2048-CLI-main` and execute below on terminal. (If you did `make` when you installed, you don't need `make` before `./2048`)
+
+```
+$ ./2048
+```
 
 ### Keyboard control
 
 * 'i' : Up
-
 * 'm' : Down
-
 * 'j' : Left
-
 * 'k' : Right
-
 * 'u' : Undo
-
 * '.' : select button
 
 ### Start Menu
 
 This is Start Menu. You can choose the size of board here. Please read the image below's description. You can also reset all data here. But, be careful, you cannot reposit deleted data.
 
+![d1](img/d1.png)
+
 ### Play Screen
 
 This is Play Screen. Cells will move soon after you type 'i', 'm', 'j', and 'k' without typing Enter key or '.' key.
+
+![d2](img/d2.png)
 
 ## Limitation
 
