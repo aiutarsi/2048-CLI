@@ -66,9 +66,13 @@ This is Play Screen. Cells will move soon after you type 'i', 'm', 'j', and 'k' 
 
 ![d2](img/d2.png)
 
+### .sheets
+
+.sheets contain files which written high score, and save data. I highly recommend not to edit these files because the probability that program throws errors is very high. If you edit them, typing `reset` at Start Menu is better way.
+
 ## Limitation
 
-* Terminal Size : Vertical - 52 lines or more, Horizon - 160 columns or more
+* **Terminal Size : Vertical - 52 lines or more, Horizon - 160 columns or more**
 
 * Terminal Background Color : Black(Dark color)
 
@@ -89,3 +93,31 @@ This is Play Screen. Cells will move soon after you type 'i', 'm', 'j', and 'k' 
 ![5](img/5.png)
 
 ## License
+
+```
+MIT License
+
+Copyright (c) 2022 aiutarsi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## Bugs etc...
+
+Please contact me through Issues or Pull requests. But I don't guarantee to see and reply it.
