@@ -28,7 +28,7 @@ Execute next command on your terminal, or download Zip file and expand it.
 $ git clone https://github.com/aiutarsi/2048-CLI.git
 ```
 
-Change directories to the `2048-CLI-main` (this is the folder which you download from GitHub), and execute next command on your terminal.
+Change directories to the downloaded directory (this is the folder which you download from GitHub), and execute next command on your terminal.
 
 ```
 $ make
@@ -39,7 +39,7 @@ $ ./2048
 
 ### Start Game
 
-Change directories to the `2048-CLI-main` and execute below on terminal. (If you did `make` when you installed, you don't need `make` before `./2048`)
+Change directories to the the downloaded directory and execute below on terminal. (If you did `make` when you installed, you don't need `make` before `./2048`)
 
 ```
 $ ./2048
@@ -78,7 +78,7 @@ This is Play Screen. Cells will move soon after you type 'i', 'm', 'j', and 'k' 
 
 * Terminal Character Color : White
 
-* 256 Color's Terminal Emulator(Using like `\033[48;5;120m`)
+* 256 Color's Terminal Emulator(Using like `\033[48;5;120m` in program)
 
 ## Images
 
