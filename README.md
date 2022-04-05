@@ -4,7 +4,7 @@
 
 ## OverView
 
-This is simple CLI 2048 Game. You can choose the size of board from 3 * 3 to 7 * 7, and undo up to 20 times ago. This game also have some functions : Saving data, recording high score, and resetting all data.
+This is a simple CLI 2048 Game. You can choose the size of the board from 3 * 3 to 7 * 7, and undo up to 20 times ago. This game also has some functions: Saving data, recording a high score, and resetting all data.
 
 Original 2048 -> https://github.com/gabrielecirulli/2048
 
@@ -12,7 +12,7 @@ Original 2048 -> https://github.com/gabrielecirulli/2048
 
 I explain the rule of 2048 easily. If you want to understand the rule accurately or in detail, please search for other sources.
 
-There is n * n grid and multiple of 2(including 0) is written in each cell. You can move one cell up, down, left, and right. If same number's cells collide, the numbers are added like 2+2=4, 4+4=8, 8+8=16, ... . After you move one cell, A cell which multiple of 2(not including 0) emerge randomly in n * n grid. Your purpose is making large number before you cannot move any cell because of full cells in grid.
+There is an n * n grid and a multiple of 2(including 0) is written in each cell. You can move one cell up, down, left, and right. If the same number's cells collide, the numbers are added like 2+2=4, 4+4=8, 8+8=16, ... . After you move one cell, A cell which a multiple of 2(not including 0) emerges randomly in the n * n grid. Your purpose is to make a large number before you cannot move any cell because of full cells in the grid.
 
 ## Installation
 
@@ -22,13 +22,13 @@ There is n * n grid and multiple of 2(including 0) is written in each cell. You 
 * make
 
 
-Execute next command on your terminal, or download Zip file and expand it.
+Execute the next command on your terminal, or download the Zip file and expand it.
 
 ```
 $ git clone https://github.com/aiutarsi/2048-CLI.git
 ```
 
-Change directories to the downloaded directory (this is the folder which you download from GitHub), and execute next command on your terminal.
+Change directories to the downloaded directory (this is the folder that you download from GitHub), and execute the next command on your terminal.
 
 ```
 $ make
@@ -39,7 +39,7 @@ $ ./2048
 
 ### Start Game
 
-Change directories to the the downloaded directory and execute below on terminal. (If you did `make` when you installed, you don't need `make` before `./2048`)
+Change directories to the downloaded directory and execute below on the terminal. (If you did `make` when you installed, you don't need `make` before `./2048`)
 
 ```
 $ ./2048
@@ -56,7 +56,7 @@ $ ./2048
 
 ### Start Menu
 
-This is Start Menu. You can choose the size of board here. Please read the image below's description. You can also reset all data here. But, be careful, you cannot reposit deleted data.
+This is Start Menu. You can choose the size of a board here. Please read the image below's description. You can also reset all data here. But, be careful, you cannot reposit deleted data.
 
 ![d1](img/d1.png)
 
@@ -68,7 +68,7 @@ This is Play Screen. Cells will move soon after you type 'i', 'm', 'j', and 'k' 
 
 ### .sheets
 
-.sheets contain files which written high score, and save data. I highly recommend not to edit these files because the probability that program throws errors is very high. If you edit them, typing `reset` at Start Menu is better way.
+.sheets contain files that write high scores and save data. I highly recommend not to edit these files because the probability that the program throws errors is very high. If you edit them, typing `reset` at Start Menu is a better way.
 
 ## Limitation
 
@@ -120,4 +120,5 @@ SOFTWARE.
 
 ## Bugs etc...
 
-Please contact me through Issues or Pull requests. But I don't guarantee to see and reply it.
+Please contact me through Issues or Pull requests. But I don't guarantee to see and reply to it.
+
